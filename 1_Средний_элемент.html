@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1. Средний элемент</title>
+  </head>
+  <body>
+    <h1>1. Средний элемент</h1>
+    <p>Рассмотрим три числа a, b&nbsp;и&nbsp;c. Упорядочим их&nbsp;по&nbsp;возрастанию.</p>
+    <p>Какое число будет стоять между двумя другими?</p>
+    <p>Решение этой задачи на&nbsp;<nobr>С++</nobr> могло&nbsp;бы выглядеть так:</p>
+
+    <pre>
+#include iostream
+#include algorithm
+
+using namespace std;
+
+int main()
+{
+    int a[3];
+    for (int i = 0; i < 3; ++i) cin >> a[i];
+    sort(a, a + 3);
+    cout << a[1] << endl;
+    return 0;
+}
+    </pre>
+    <h2>Формат ввода</h2>
+    <p>
+      В&nbsp;единственной строке записаны три целых числа a, b, c&nbsp;(&#8722;1000 &#8804; a, b,
+      c&nbsp;&#8804; 1000), числа разделены одиночными пробелами.
+    </p>
+    <h2>Формат вывода</h2>
+    <p>Выведите число, которое будет стоять между двумя другими после упорядочивания.</p>
+
+    <script type="module" src="/src/1_task.js"></script>
+  </body>
+</html>
