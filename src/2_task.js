@@ -20,7 +20,7 @@ export function main(input) {
   const [rows, cols] = config.split(" ").map(Number);
 
   const matrix = Array.from({ length: rows }, (_, rowIdx) => lines[rowIdx].split(" ").map(Number));
-  const sumMatrix = Array.from({ length: rows }, (_, rowIdx) => new Array(cols).fill(0));
+  const sumMatrix = Array.from({ length: rows }, () => new Array(cols).fill(0));
 
   /* Считаем вершины */
   // Подробнее о том, ПОЧЕМУ так сделано есть разбор в 3_task.js
