@@ -1,21 +1,6 @@
 import rl from "./helpers/rl";
 
-export const baseInput = [
-  "5 5",
-  "1 1 1 1 1",
-  "3 100 100 100 100",
-  "1 1 1 1 1",
-  "2 2 2 2 1",
-  "1 1 1 1 1"
-];
-
-for (let inputLineIdx = 0; inputLineIdx < baseInput.length; inputLineIdx++) {
-  const inputLine = baseInput[inputLineIdx];
-  rl.push(inputLine);
-}
-rl.end();
-
-export function main(input) {
+function main(input) {
   const [config, ...lines] = input;
   const [rows, cols] = config.split(" ").map(Number);
 
@@ -57,3 +42,16 @@ export function main(input) {
 
   main(lines);
 })();
+
+/************* ЗАВИСИМОСТИ ДЛЯ ЛОКАЛЬНОЙ РАЗРАБОТКИ *************/
+export const baseInput = [
+  "5 5",
+  "1 1 1 1 1",
+  "3 100 100 100 100",
+  "1 1 1 1 1",
+  "2 2 2 2 1",
+  "1 1 1 1 1"
+];
+rl.injectInput(baseInput);
+
+export default main;

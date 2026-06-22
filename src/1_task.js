@@ -1,9 +1,6 @@
 import rl from "./helpers/rl";
 
-rl.push(" 3 1 3");
-rl.end();
-
-export function main(lines) {
+function main(lines) {
   const out = lines[0]
     .trim()
     .split(" ")
@@ -20,3 +17,9 @@ export function main(lines) {
 
   main(lines);
 })();
+
+/************* ЗАВИСИМОСТИ ДЛЯ ЛОКАЛЬНОЙ РАЗРАБОТКИ *************/
+export const baseInput = ["1 2 3"];
+rl.injectInput(baseInput);
+
+export default main;

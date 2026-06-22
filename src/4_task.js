@@ -1,14 +1,6 @@
 import rl from "./helpers/rl";
 
-export const baseInput = ["31 34"];
-
-for (let inputLineIdx = 0; inputLineIdx < baseInput.length; inputLineIdx++) {
-  const inputLine = baseInput[inputLineIdx];
-  rl.push(inputLine);
-}
-rl.end();
-
-export function main(input) {
+function main(input) {
   const [config] = input;
   // rows - вертикаль (N)
   // cols - горизонталь (M)
@@ -57,3 +49,9 @@ export function main(input) {
 
   main(lines);
 })();
+
+/************* ЗАВИСИМОСТИ ДЛЯ ЛОКАЛЬНОЙ РАЗРАБОТКИ *************/
+export const baseInput = ["31 34"];
+rl.injectInput(baseInput);
+
+export default main;
