@@ -21,7 +21,7 @@ describe("НОП с восстановлением ответа", () => {
 
     main(baseInput);
 
-    expect(logSpy).toHaveBeenCalledWith("1");
+    expect(logSpy).toHaveBeenCalledWith("3");
   });
 
   it("Ввод матрицы 5", () => {
@@ -40,11 +40,11 @@ describe("НОП с восстановлением ответа", () => {
     expect(logSpy).toHaveBeenCalledWith("2 1 2 1");
   });
 
-  it("Ввод матрицы 123456", () => {
-    const baseInput = ["3", "1 2 3", "3", "4 5 6"];
+  it("Ввод матрицы 8 2 3 5 1", () => {
+    const baseInput = ["4", "1 2 3 4", "5", "8 2 3 5 1"];
 
     main(baseInput);
 
-    expect(logSpy).toHaveBeenCalledWith("");
+    expect(logSpy).toHaveBeenCalledWith("2 3");
   });
 });
