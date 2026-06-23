@@ -1,6 +1,6 @@
 import { describe, it, beforeEach, vi, expect } from "vitest";
 
-import { main, baseInput } from "./4_task";
+import main, { baseInput } from "./4_task";
 
 describe("Ход конём", () => {
   let logSpy;

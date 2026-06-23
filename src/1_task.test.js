@@ -1,6 +1,6 @@
 import { describe, it, beforeEach, vi, expect } from "vitest";
 
-import { main } from "./1_task";
+import main, { baseInput } from "./1_task";
 
 describe("Средний элемент", () => {
   let logSpy;
@@ -11,7 +11,7 @@ describe("Средний элемент", () => {
   });
 
   it("Ввод 1 2 3", () => {
-    main(["1 2 3"]);
+    main(baseInput);
 
     expect(logSpy).toHaveBeenCalledWith(2);
   });

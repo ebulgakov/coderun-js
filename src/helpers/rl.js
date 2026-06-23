@@ -14,7 +14,7 @@ const rl = {
     return {
       next: async () => {
         while (this.lines.length === 0) {
-          await new Promise(resolve => this._resolve = resolve);
+          await new Promise(resolve => (this._resolve = resolve));
         }
 
         if (this.lines[0] === null) {
@@ -24,6 +24,13 @@ const rl = {
         return { value: this.lines.shift(), done: false };
       }
     };
+  },
+  injectInput(input) {
+    for (let inputLineIdx = 0; inputLineIdx < input.length; inputLineIdx++) {
+      const inputLine = input[inputLineIdx];
+      this.push(inputLine);
+    }
+    this.end();
   }
 };
 
