@@ -49,7 +49,7 @@ function main(input) {
   const seen = Array(N).fill(false);
 
   // DFS поможет пройти по каждой вершине и найти к ним рёбра
-  (function dfs(vertex, seen) {
+  (function dfs(vertex) {
     // Учитывая, что мы можем прийти в одну вершину разными путями, к примеру из (1) в (3), а потом обратно
     // то нужно убрать бесконечную рекурсию
     if (seen[vertex]) return;
@@ -58,9 +58,9 @@ function main(input) {
     const relatedVertices = graph[vertex];
     for (let vertexIdx = 0; vertexIdx < relatedVertices.length; vertexIdx += 1) {
       const relatedVertex = relatedVertices[vertexIdx];
-      dfs(relatedVertex, seen);
+      dfs(relatedVertex);
     }
-  })(0, seen); // Идём с нулевой вершины
+  })(0); // Идём с нулевой вершины
 
   // Формируем решение
   const verticesConnectivity = [];
