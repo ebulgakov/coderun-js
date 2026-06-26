@@ -10,7 +10,7 @@ describe("Ход конём", () => {
     logSpy = vi.spyOn(console, "log").mockImplementation(() => {});
   });
 
-  it("Ввод базовой матрицы", () => {
+  it("Ввод базового решения", () => {
     main(baseInput);
 
     expect(logSpy).toHaveBeenCalledWith(293930);

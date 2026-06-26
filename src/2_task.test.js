@@ -10,7 +10,7 @@ describe("Самый дешевый путь", () => {
     logSpy = vi.spyOn(console, "log").mockImplementation(() => {});
   });
 
-  it("Базовый случай", () => {
+  it("Ввод базового решения", () => {
     main(baseInput);
 
     expect(logSpy).toHaveBeenCalledWith(11);
