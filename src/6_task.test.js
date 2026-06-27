@@ -10,7 +10,7 @@ describe("НОП с восстановлением ответа", () => {
     logSpy = vi.spyOn(console, "log").mockImplementation(() => {});
   });
 
-  it("Ввод базовой матрицы", () => {
+  it("Ввод базового решения", () => {
     main(baseInput);
 
     expect(logSpy).toHaveBeenCalledWith("2 3");

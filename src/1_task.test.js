@@ -10,7 +10,7 @@ describe("Средний элемент", () => {
     logSpy = vi.spyOn(console, "log").mockImplementation(() => {});
   });
 
-  it("Ввод 1 2 3", () => {
+  it("Ввод базового решения", () => {
     main(baseInput);
 
     expect(logSpy).toHaveBeenCalledWith(2);
