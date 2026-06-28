@@ -1,3 +1,4 @@
+// Time Complexity - O(N)
 function myPromiseAll(tasks) {
   return new Promise(async (resolve, reject) => {
     if (tasks.length === 0) return resolve([]);
@@ -16,7 +17,7 @@ function myPromiseAll(tasks) {
           }
         })
         .catch(reject);
-    });
+    }); // O(N)
   });
 }
 
