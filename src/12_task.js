@@ -1,5 +1,6 @@
 import rl from "./helpers/rl";
 
+// Time Complexity - O(N^2)
 function main(input) {
   const N = Number(input.shift());
 
@@ -15,9 +16,9 @@ function main(input) {
     return;
   }
 
-  const graph = Array.from({ length: N }, (_, idx) => input[idx].split(" ").map(Number));
+  const graph = Array.from({ length: N }, (_, idx) => input[idx].split(" ").map(Number)); // O(N^2)
 
-  const connectivity = new Array(N).fill(-1);
+  const connectivity = new Array(N).fill(-1); // O(N)
 
   {
     /*
@@ -81,7 +82,7 @@ function main(input) {
       }
 
       seen[vertex] = true;
-    }
+    } // O(N^2), потому что цикл всегда выполнится
   }
 
   // Если прошли весь алгоритм, но нак и не нашли финальную вершину
@@ -100,7 +101,7 @@ function main(input) {
   while (connectivity[curr] !== -1) {
     out.push(connectivity[curr]);
     curr = connectivity[curr];
-  }
+  } // O(N)
 
   if (out.length > 0) {
     console.log(out.length);

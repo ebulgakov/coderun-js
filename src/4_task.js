@@ -1,11 +1,12 @@
 import rl from "./helpers/rl";
 
+// Time Complexity: O(N * M), где N - это rows, а M - cols
 function main(input) {
   const [config] = input;
   // rows - вертикаль (N)
   // cols - горизонталь (M)
   const [rows, cols] = config.split(" ").map(Number);
-  const matrix = Array.from({ length: rows }, () => new Array(cols).fill(0));
+  const matrix = Array.from({ length: rows }, () => new Array(cols).fill(0)); // O(N)
 
   {
     /*
@@ -35,7 +36,7 @@ function main(input) {
           matrix[rowIdx][colIdx] += matrix[rowIdx - 1][colIdx - 2];
         }
       }
-    }
+    } // O(N * M)
   }
 
   console.log(matrix[rows - 1][cols - 1]);

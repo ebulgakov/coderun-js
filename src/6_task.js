@@ -1,5 +1,6 @@
 import rl from "./helpers/rl";
 
+// Time Complexity: O((N + 1) * (M + 1))
 function main(input) {
   const firstLinesCount = Number(input[0]);
   const firstLines = input[1].split(" ");
@@ -12,7 +13,7 @@ function main(input) {
    */
   const matrix = Array.from({ length: firstLinesCount + 1 }, () =>
     new Array(secondLinesCount + 1).fill(0)
-  );
+  ); // O(N + 1)
 
   /*
    Для последовательности (8 2 3 5 1) x (1 2 3 4)
@@ -36,7 +37,7 @@ function main(input) {
         );
       }
     }
-  }
+  } // O((N + 1) * (M + 1))
 
   const LCS = [];
   {
@@ -60,7 +61,7 @@ function main(input) {
       } else {
         secondLinesIdx -= 1;
       }
-    }
+    } // O((N + 1) + (M + 1)), потому что самое худшее, что может случиться, мы будем спускаться по одному из путей
   }
 
   console.log(LCS.reverse().join(" "));

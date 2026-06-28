@@ -1,14 +1,15 @@
 import rl from "./helpers/rl";
 
+// Time Complexity: O(N * M), где N - это rows, а M - cols
 function main(input) {
   const [config, ...lines] = input;
   // rows - вертикаль (N)
   // cols - горизонталь (M)
   const [rows, cols] = config.split(" ").map(Number);
 
-  const matrix = Array.from({ length: rows }, (_, rowIdx) => lines[rowIdx].split(" ").map(Number));
-  const sumMatrix = Array.from({ length: rows }, () => new Array(cols).fill(0));
-  const pathMatrix = Array.from({ length: rows }, () => new Array(cols).fill(""));
+  const matrix = Array.from({ length: rows }, (_, rowIdx) => lines[rowIdx].split(" ").map(Number)); // O(N * M)
+  const sumMatrix = Array.from({ length: rows }, () => new Array(cols).fill(0)); // O(N)
+  const pathMatrix = Array.from({ length: rows }, () => new Array(cols).fill("")); // O(N)
 
   {
     /*
@@ -23,13 +24,13 @@ function main(input) {
     for (let colIdx = 1; colIdx < cols; colIdx++) {
       sumMatrix[0][colIdx] = sumMatrix[0][colIdx - 1] + matrix[0][colIdx];
       pathMatrix[0][colIdx] = "R";
-    }
+    } // O(M)
 
     // вертикально считаем первый нижний столбец
     for (let rowIdx = 1; rowIdx < rows; rowIdx++) {
       sumMatrix[rowIdx][0] = sumMatrix[rowIdx - 1][0] + matrix[rowIdx][0];
       pathMatrix[rowIdx][0] = "D";
-    }
+    } // O(N)
   }
 
   /*
@@ -54,7 +55,7 @@ function main(input) {
         pathMatrix[rowIdx][colIdx] = "R";
       }
     }
-  }
+  } // O(N * M)
 
   /*
    благодаря тому, что на предыдущем шаге в pathMatrix записывалась история откуда вёлся подсчёт:
@@ -72,7 +73,7 @@ function main(input) {
     } else {
       colsPath -= 1;
     }
-  }
+  } // O(N * M), потому что он в худшем случае может обойти всю матрицу
 
   console.log(sumMatrix[rows - 1][cols - 1]);
   console.log(foundPath.reverse().join(" "));
