@@ -13,12 +13,25 @@ describe("Длина кратчайшего пути", () => {
   it("Ввод базового решения", () => {
     main(baseInput);
 
-    expect(logSpy).toHaveBeenCalledWith(2);
+    expect(logSpy).toHaveBeenCalledWith(3);
   });
 
-  it("Ввод графа 5", () => {
-    main(["5", "0 1 0 0 1", "1 0 1 0 0", "0 1 0 0 0", "0 0 0 0 0", "1 0 0 0 0", "3 5"]);
+  it("Ввод графа 10", () => {
+    main([
+      "10",
+      "0 1 0 0 0 0 0 0 0 0",
+      "1 0 0 1 1 0 1 0 0 0",
+      "0 0 0 0 1 0 0 0 1 0",
+      "0 1 0 0 0 0 1 0 0 0",
+      "0 1 1 0 0 0 0 0 0 1",
+      "0 0 0 0 0 0 1 0 0 1",
+      "0 1 0 1 0 1 0 0 0 0",
+      "0 0 0 0 0 0 0 0 1 0",
+      "0 0 1 0 0 0 0 1 0 0",
+      "0 0 0 0 1 1 0 0 0 0",
+      "5 4"
+    ]);
 
-    expect(logSpy).toHaveBeenCalledWith(3);
+    expect(logSpy).toHaveBeenCalledWith(2);
   });
 });
