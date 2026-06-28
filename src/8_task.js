@@ -1,20 +1,21 @@
 import rl from "./helpers/rl";
 
+// Time Complexity: O(N + M)
 function main(input) {
   const [config, ...verticesStings] = input;
   // N - вершина, целое число (0 < N ≤ 100000)
   // M - ребро, целое число (0 ≤ M ≤ 100000) - в решении не используется
   const [N, M] = config.split(" ").map(Number);
 
-  const vertices = verticesStings.map(str => str.split(" ").map(vertex => Number(vertex) - 1));
-  const graph = Array.from({ length: N }, () => []);
+  const vertices = verticesStings.map(str => str.split(" ").map(vertex => Number(vertex) - 1)); // O(L), где L - verticesStings, кол-во пар
+  const graph = Array.from({ length: N }, () => []); // O(N)
 
   for (const [vertex1, vertex2] of vertices) {
     graph[vertex1].push(vertex2);
     graph[vertex2].push(vertex1);
-  }
+  } // O(M)
 
-  const seen = new Array(N).fill(false);
+  const seen = new Array(N).fill(false); // O(N)
 
   /*
    Первая попытка была решить эту задачу через обычный рекурсивный DFS
@@ -36,7 +37,7 @@ function main(input) {
         }
       }
     }
-  }
+  } // O(N + M)
 
   const components = [];
   for (let vertex = 0; vertex < N; vertex += 1) {
@@ -48,14 +49,14 @@ function main(input) {
       dfsIterative(vertex, comp);
       components.push(comp);
     }
-  }
+  } // O(N)
 
   // Вывод решения
   console.log(components.length);
   for (const comp of components) {
     console.log(comp.length);
     console.log(comp.map(v => v + 1).join(" "));
-  }
+  } // O(C)
 }
 
 (async function runner() {

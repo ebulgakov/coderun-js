@@ -1,5 +1,6 @@
 import rl from "./helpers/rl";
 
+// Time Complexity: O(N + M) - DFS или формирование графа
 function main(input) {
   const [config, ...verticesStings] = input;
   // N - вершина, целое число (1≤N≤10^3)
@@ -7,13 +8,13 @@ function main(input) {
   const [N, M] = config.split(" ").map(Number);
 
   // Избавляемся от пустых строк которые могут прилететь в рантайме, а заодно и кратных рёбер (дубликатов) в графе
-  const uniqVertices = Array.from(new Set(verticesStings.filter(Boolean)));
+  const uniqVertices = Array.from(new Set(verticesStings.filter(Boolean))); // O(N)
 
   // Разбираем строки с вершинами. Number(edge) - 1 нужен, чтобы когда создавали
   // граф не нужно было делать "vertex1-1" и "vertex2-1"
-  const vertices = uniqVertices.map(str => str.split(" ").map(vertex => Number(vertex) - 1));
+  const vertices = uniqVertices.map(str => str.split(" ").map(vertex => Number(vertex) - 1)); // O(M)
 
-  const graph = Array.from({ length: N }, () => []);
+  const graph = Array.from({ length: N }, () => []); // O(N)
 
   for (const [vertex1, vertex2] of vertices) {
     // Избавляемся от петель в графе
@@ -43,10 +44,10 @@ function main(input) {
                    [ 2, 1 ] - это вершина (3), которая соединена с вершинами (1) и (2)
        */
     }
-  }
+  } // O(M)
 
   // По-умолчанию, ни в одну вершину мы не можем попасть, как будто они не связаны рёбрами
-  const seen = Array(N).fill(false);
+  const seen = Array(N).fill(false); // O(N)
 
   // DFS поможет пройти по каждой вершине и найти к ним рёбра
   (function dfs(vertex) {
@@ -60,7 +61,7 @@ function main(input) {
       const relatedVertex = relatedVertices[vertexIdx];
       dfs(relatedVertex);
     }
-  })(0); // Идём с нулевой вершины
+  })(0); // Идём с нулевой вершины самый тяжёлый алгоритм - O(N + M) - потому что каждая вершина и ребро посещается ровно один раз
 
   // Формируем решение
   const verticesConnectivity = [];
@@ -69,7 +70,7 @@ function main(input) {
       // +1 нужен, чтобы вернуть индексацию уменьшенную при инициализации vertices
       verticesConnectivity.push(vertex + 1);
     }
-  }
+  } // O(N)
 
   console.log(verticesConnectivity.length);
   console.log(verticesConnectivity.join(" "));

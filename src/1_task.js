@@ -1,11 +1,12 @@
 import rl from "./helpers/rl";
 
+// Time Complexity O(N log N)
 function main(lines) {
   const out = lines[0]
     .trim()
     .split(" ")
-    .map(Number)
-    .sort((a, b) => a - b);
+    .map(Number) // O(N)
+    .sort((a, b) => a - b); // O(N log N), потому что алгоритм Timesort
   console.log(out[1]);
 }
 

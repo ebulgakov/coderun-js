@@ -1,21 +1,22 @@
 import rl from "./helpers/rl";
 
+// Time Complexity: O(N * M), где N - это rows, а M - cols
 function main(input) {
   const [config, ...lines] = input;
   const [rows, cols] = config.split(" ").map(Number);
 
-  const matrix = Array.from({ length: rows }, (_, rowIdx) => lines[rowIdx].split(" ").map(Number));
-  const sumMatrix = Array.from({ length: rows }, () => new Array(cols).fill(0));
+  const matrix = Array.from({ length: rows }, (_, rowIdx) => lines[rowIdx].split(" ").map(Number)); // O(N * M)
+  const sumMatrix = Array.from({ length: rows }, () => new Array(cols).fill(0)); // O(N * M)
 
   /* Считаем вершины */
   // Подробнее о том, ПОЧЕМУ так сделано есть разбор в 3_task.js
   sumMatrix[0][0] = matrix[0][0];
   for (let colIdx = 1; colIdx < cols; colIdx += 1) {
     sumMatrix[0][colIdx] = sumMatrix[0][colIdx - 1] + matrix[0][colIdx];
-  }
+  } // O(M)
   for (let rowIdx = 1; rowIdx < rows; rowIdx += 1) {
     sumMatrix[rowIdx][0] = sumMatrix[rowIdx - 1][0] + matrix[rowIdx][0];
-  }
+  } // O(N)
 
   /* Считаем остальное */
   for (let colIdx = 1; colIdx < cols; colIdx += 1) {
@@ -29,7 +30,7 @@ function main(input) {
         sumMatrix[rowIdx][colIdx] = fromLeft + matrix[rowIdx][colIdx];
       }
     }
-  }
+  } // O(N * M)
 
   console.log(sumMatrix[rows - 1][cols - 1]);
 }
