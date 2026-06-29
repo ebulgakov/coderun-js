@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Свой Event Emitter (Pub/Sub)</title>
+  </head>
+  <body>
+    <h1>Свой Event Emitter (Pub/Sub)</h1>
+
+    <h2>Описание:</h2>
+    <p>Напиши класс EventEmitter, который реализует паттерн Publisher-Subscriber.</p>
+
+    <h2>Требования:</h2>
+    <p>У класса должны быть следующие методы:</p>
+
+    <ol>
+      <li>on(eventName, callback) — подписывает функцию callback на событие eventName.</li>
+      <li>
+        off(eventName, callback) — отписывает конкретную функцию callback от события eventName.
+      </li>
+      <li>
+        emit(eventName, ...args) — вызывает все функции, подписанные на eventName, передавая им
+        аргументы args.
+      </li>
+      <li>
+        once(eventName, callback) — подписывает функцию на событие, но после первого же срабатывания
+        эта функция должна автоматически отписаться.
+      </li>
+    </ol>
+    <script type="module" src="/src/other/event_emitter.js"></script>
+  </body>
+</html>
