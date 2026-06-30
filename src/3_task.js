@@ -1,6 +1,10 @@
 import rl from "./helpers/rl";
 
-// Time Complexity: O(N * M), где N - это rows, а M - cols
+/**
+ * 3. Вывести маршрут максимальной стоимости
+ * https://coderun.yandex.ru/problem/print-the-route-of-the-maximum-cost/description
+ * Time Complexity: O(N * M), где N - это rows, а M - cols
+ */
 function main(input) {
   const [config, ...lines] = input;
   // rows - вертикаль (N)

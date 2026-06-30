@@ -1,6 +1,10 @@
 import rl from "./helpers/rl";
 
-// Time Complexity O(N log N)
+/**
+ * 1. Средний элемент
+ * https://coderun.yandex.ru/problem/median-out-of-three
+ * Time Complexity O(N log N)
+ */
 function main(lines) {
   const out = lines[0]
     .trim()

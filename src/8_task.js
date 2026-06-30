@@ -1,6 +1,10 @@
 import rl from "./helpers/rl";
 
-// Time Complexity: O(N + M)
+/**
+ * 8. Компоненты связности
+ * https://coderun.yandex.ru/problem/connectivity-components
+ * Time Complexity: O(N + M)
+ */
 function main(input) {
   const [config, ...verticesStings] = input;
   // N - вершина, целое число (0 < N ≤ 100000)

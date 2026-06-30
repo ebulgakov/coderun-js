@@ -1,6 +1,10 @@
 import rl from "./helpers/rl";
 
-// Time Complexity: O((N + 1) * (M + 1))
+/**
+ * 6. НОП с восстановлением ответа
+ * https://coderun.yandex.ru/problem/nop-with-response-recovery
+ * Time Complexity: O((N + 1) * (M + 1))
+ */
 function main(input) {
   const firstLinesCount = Number(input[0]);
   const firstLines = input[1].split(" ");

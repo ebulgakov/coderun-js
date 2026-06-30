@@ -1,6 +1,10 @@
 import rl from "./helpers/rl";
 
-// Time Complexity: O(N + M) - DFS или формирование графа
+/**
+ * 7. Поиск в глубину
+ * https://coderun.yandex.ru/problem/search-in-depth
+ * Time Complexity: O(N + M) - DFS или формирование графа
+ */
 function main(input) {
   const [config, ...verticesStings] = input;
   // N - вершина, целое число (1≤N≤10^3)

@@ -1,6 +1,10 @@
 import rl from "./helpers/rl";
 
-// Time Complexity - O(N^2)
+/**
+ * 12. Длина кратчайшего пути
+ * https://coderun.yandex.ru/problem/shortest-path-length
+ * Time Complexity - O(N^2)
+ */
 function main(input) {
   const N = Number(input.shift());
 
@@ -119,6 +123,7 @@ function main(input) {
   main(lines);
 })();
 
+/************* ЗАВИСИМОСТИ ДЛЯ ЛОКАЛЬНОЙ РАЗРАБОТКИ *************/
 export const baseInput = [
   "5",
   "0 1 0 0 1",

@@ -1,6 +1,10 @@
 import rl from "./helpers/rl";
 
-// Time Complexity: O(N * M), где N - это rows, а M - cols
+/**
+ * 2. Самый дешевый путь
+ * https://coderun.yandex.ru/problem/cheapest-way
+ * Time Complexity: O(N * M), где N - это rows, а M - cols
+ */
 function main(input) {
   const [config, ...lines] = input;
   const [rows, cols] = config.split(" ").map(Number);

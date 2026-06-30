@@ -1,6 +1,10 @@
 import rl from "./helpers/rl";
 
-// Time Complexity: O(N * M), где N - это rows, а M - cols
+/**
+ * 4. Ход конём
+ * https://coderun.yandex.ru/problem/knight-move
+ * Time Complexity: O(N * M), где N - это rows, а M - cols
+ */
 function main(input) {
   const [config] = input;
   // rows - вертикаль (N)
