@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Управление конкурентностью (Concurrency)</title>
+  </head>
+  <body>
+    <h1>Управление конкурентностью (Concurrency)</h1>
+
+    <h2>Описание:</h2>
+    <p>-</p>
+
+    <h2>Требования:</h2>
+
+    <ol>
+      <li>
+        На вход передается массив функций, которые возвращают промисы (чтобы они не начали
+        выполняться сразу при создании).
+      </li>
+
+      <li>
+        Как только один промис завершается, на его место тут же должен запускаться следующий из
+        очереди (а не ждать, пока завершится весь "батч" из limit штук).
+      </li>
+
+      <li>Результат должен быть массивом ответов в исходном порядке.</li>
+
+      <li>Если хоть один упал — падаем все.</li>
+    </ol>
+    <script type="module" src="/src/other/promise_concurrency.js"></script>
+  </body>
+</html>
