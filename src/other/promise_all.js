@@ -1,6 +1,6 @@
 // Time Complexity - O(N)
 function myPromiseAll(tasks) {
-  return new Promise(async (resolve, reject) => {
+  return new Promise((resolve, reject) => {
     if (tasks.length === 0) return resolve([]);
 
     let completedCount = 0;
