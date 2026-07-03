@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Продвинутый Debounce (Leading & Trailing)</title>
+  </head>
+  <body>
+    <h1>Продвинутый Debounce (Leading & Trailing)</h1>
+
+    <h2>Описание:</h2>
+    <p>
+      Напиши функцию debounce(fn, delay, options), которая ограничивает частоту вызовов переданной функции fn. Функция должна поддерживать опции leading (вызов в начале ожидания) и trailing (вызов в конце ожидания).
+    </p>
+
+    <h2>Требования:</h2>
+
+    <ol>
+      <li>По умолчанию: Если options не передан, функция работает в классическом режиме: { leading: false, trailing: true }.</li>
+
+      <li>leading: true: Вызывает fn немедленно при первом обращении. Все последующие вызовы в течение времени delay игнорируются.</li>
+
+      <li>trailing: true: Вызывает fn после того, как пройдет время delay с момента последнего обращения.</li>
+
+      <li>leading: true, trailing: true: При первом вызове функция срабатывает сразу. Если в течение delay были еще попытки вызова, она сработает второй раз в конце таймера. Важный нюанс: если функция была вызвана всего один раз, она должна сработать только в начале (двойного вызова быть не должно).</li>
+
+      <li>Контекст и аргументы: Возвращаемая функция должна корректно прокидывать this и все аргументы в оригинальную fn.</li>
+    </ol>
+    <script type="module" src="/src/other/debounce.js"></script>
+  </body>
+</html>
