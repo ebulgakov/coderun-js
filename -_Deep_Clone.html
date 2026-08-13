@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Глубокое копирование (Deep Clone) с цикличными ссылками</title>
+  </head>
+  <body>
+    <h1>Глубокое копирование (Deep Clone) с цикличными ссылками</h1>
+
+    <h2>Описание:</h2>
+    <p>
+      Тебе нужно написать функцию deepClone(obj), которая создает полную (глубокую) копию
+      переданного объекта. structuredClone или JSON.parse(JSON.stringify(obj)) использовать нельзя.
+    </p>
+
+    <h2>Требования:</h2>
+
+    <ol>
+      <li>Функция должна корректно копировать примитивы, объекты ({}) и массивы ([]).</li>
+
+      <li>
+        (Критично) Функция должна уметь обрабатывать цикличные ссылки (circular references), когда
+        объект ссылается сам на себя. Обычная рекурсия в таком случае упадет с Maximum call stack
+        size exceeded. Твоя функция не должна падать, она должна воссоздать эту цикличность в новом
+        объекте.
+      </li>
+
+      <li>Опционально (на бонусные баллы): Поддержка копирования объектов Date и Map.</li>
+    </ol>
+    <script type="module" src="/src/other/deep_clone.js"></script>
+  </body>
+</html>
