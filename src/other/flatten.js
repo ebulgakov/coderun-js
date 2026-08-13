@@ -3,21 +3,10 @@ function flattenRec(arr, depth = 1) {
   if (depth < 1) return arr.slice(); // поверхностное копирование
 
   const result = [];
-  const stack = [{ array: arr, index: 0, depth }];
 
-  while (stack.length > 0) {
-    const frame = stack[stack.length - 1];
-
-    if (frame.index >= frame.array.length) {
-      stack.pop();
-      continue;
-    }
-
-    const item = frame.array[frame.index++];
-
-    if (Array.isArray(item) && frame.depth > 0) {
-      const nextDepth = frame.depth === Infinity ? Infinity : frame.depth - 1;
-      stack.push({ array: item, index: 0, depth: nextDepth });
+  for (const item of arr) {
+    if (Array.isArray(item) && depth > 0) {
+      result.push(...flattenRec(item, depth === Infinity ? Infinity : depth - 1)); // ... делаем плоским
     } else {
       result.push(item);
     }
