@@ -1,4 +1,4 @@
-function flatten(arr, depth = 1) {
+function flattenRec(arr, depth = 1) {
   if (!Array.isArray(arr)) return arr; // значит примитив
   if (depth < 1) return arr.slice(); // поверхностное копирование
 
@@ -26,4 +26,21 @@ function flatten(arr, depth = 1) {
   return result;
 }
 
-export default flatten;
+function flattenInc(arr, depth = 1) {
+  const result = [];
+  const stack = arr.map(item => [item, depth]); // пары [значение, остаток глубины]
+
+  while (stack.length) {
+    const [item, d] = stack.pop();
+
+    if (Array.isArray(item) && d > 0) {
+      for (const x of item) stack.push([x, d - 1]);
+    } else {
+      result.push(item);
+    }
+  }
+
+  return result.reverse(); // ← pop() даёт обратный порядок
+}
+
+export { flattenInc, flattenRec };
